@@ -1,0 +1,44 @@
+Soal No 1 Membuat database
+Create DATABASE Users;
+Create DATABASE categories;
+Create DATABASE items;
+
+
+Soal No 2 Membuat Table di Dalam Database
+A. Table Users
+create table users( id int primary key AUTO_INCREMENT, name varchar(255) not null, email varchar(255) not null, password varchar(255) not null )
+B. Table Categories
+create table categories( id int primary key AUTO_INCREMENT, name varchar(255) not null )
+C. Table Items
+CREATE TABLE items ( id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, stock INT NOT NULL, categories_id INT, FOREIGN KEY (categories_id) REFERENCES categories(id) )
+
+
+Soal No 3 Memasukkan Data pada Table
+A. Tabel Users
+INSERT INTO users(name,email,password) VALUES("Christiansen Wesley", "christiansenwesley60@gmail.com", "christiansen123")
+INSERT INTO users(name,email,password) VALUES("Jane Doe", "jane@doe.com", "jenita123")
+INSERT INTO users(name,email,password) VALUES("Jhon Doe", "jhone@doe.com", "Jhondoe123")
+B. Tabel Categories
+INSERT INTO categories(name) VALUES("gadget")
+INSERT INTO categories(name) VALUES("cloth")
+INSERT INTO categories(name) VALUES("men")
+INSERT INTO categories(name) VALUES("women")
+INSERT INTO categories(name) VALUES("branded")
+C. Tabel Items
+INSERT INTO items(name,description,price,stock,categories_id) VALUES("Sumsang b50", "hape keren dari merek sumsang", "4000000", 100, 1)
+INSERT INTO items(name,description,price,stock,categories_id) VALUES("Uniklooh", "baju keren dari brand ternama", "500000", 50, 2)
+INSERT INTO items(name,description,price,stock,categories_id) VALUES("IMHO Watch", "jam tangan anak yang jujur banget", "2000000", 10, 1)
+
+
+Soal No 4 Mengambil data dari database
+A. Mengambil data users
+SELECT id,name,email,password FROM `users`
+B. Mengambil data items
+SELECT * FROM `items` WHERE price > 1000000
+SELECT * FROM items WHERE name like '%sang b50'
+C. Menampilkan data items join dengan kategori
+select items.id, items.name, items.description, items.price, items.stock, items.categories_id, categories.name as categories from items inner join categories on items.categories_id = categories.id;
+
+
+Soal No 5 Mengubah Data dari Database
+UPDATE items SET price = 2500000 WHERE id=1 
