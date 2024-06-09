@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <a href="/cast/create" class="btn btn-primary mb-3">Tambah</a>
+    <a href="/pelanggan/create" class="btn btn-primary mb-3">Tambah</a>
     @if(session('success'))
     <div class="alert alert-success">{{session('success')}}</div>
     @endif
@@ -13,24 +13,24 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Umur</th>
-                <th scope="col">Bio</th>
+                <th scope="col">nama_pelanggaan</th>
+                <th scope="col">alamat_pelanggan</th>
+                <th scope="col">nomor_pelanggan</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-                @forelse ($cast as $key=>$item)
+                @forelse ($pelanggan as $key=>$item)
                     <tr>
                         <td>{{$key + 1}}</th>
-                        <td>{{$item->nama}}</td>
-                        <td>{{$item->umur}}</td>
-                        <td>{{$item->bio}}</td>
+                        <td>{{$item->nama_pelanggaan}}</td>
+                        <td>{{$item->alamat_pelanggan}}</td>
+                        <td>{{$item->nomor_pelanggan}}</td>
                         <td>
                             <div class="d-flex">
-                            <a href="/cast/{{$item->id}}" class="btn btn-info btn-sm mr-1">Show</a>
-                            <a href="/cast/{{$item->id}}/edit" class="btn btn-primary btn-sm mr-1">Edit</a>
-                            <form action="/cast/{{$item->id}}" method="POST" class="d-inline">
+                            <a href="/pelanggan/{{$item->id}}" class="btn btn-info btn-sm mr-1">Show</a>
+                            <a href="/pelanggan/{{$item->id}}/edit" class="btn btn-primary btn-sm mr-1">Edit</a>
+                            <form action="/pelanggan/{{$item->id}}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" class="btn btn-danger btn-sm" value="Delete">

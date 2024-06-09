@@ -34,13 +34,13 @@ class CastController extends Controller
     		'umur' => 'required',
 			'bio' => 'required'
       	]);
-		
+
 		  $cast = new Cast;
- 
+
 		  $cast->nama = $request->nama;
 		  $cast->umur = $request->umur;
 		  $cast->bio = $request->bio;
-   
+
 		  $cast->save();
 
 		  return redirect('/cast');
@@ -76,7 +76,7 @@ class CastController extends Controller
       	]);
 
           $cast = Cast::find($id);
- 
+
           $cast->nama = $request['nama'];
           $cast->umur = $request['umur'];
           $cast->bio = $request['bio'];
